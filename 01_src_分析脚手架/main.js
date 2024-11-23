@@ -1,6 +1,7 @@
 import Vue from 'vue' //这里引入的是残缺版的vue,是没有模版解析器是不能写template的 vue.runtime.esm.js
 import App from './App.vue'
-   
+const app = createApp(App);
+app.mount('#app');
 // import Vue from 'vue/dist/vue';
 
 Vue.config.productionTip = false;
