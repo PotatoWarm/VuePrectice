@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "lingling-project-one",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,8 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
