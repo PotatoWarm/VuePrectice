@@ -37,37 +37,6 @@
 1.使用vue inspect > output.js可以查看到vue脚手架的默认配置。
 2.使用vue.config.js可以对脚手架进行个性化定制，详情：https://cli.vuejs.org/zh
 
-##ref属性
-
-1.被用来给元素或子组件注册引用信息（id的替代者）
-2.应用html标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象（vc）
-
-3.使用方法：
-1.打标识：
-
-```<h1 ref="xxx">.....</h1>  /  <School ref="xxx"></School>```
-
-2.获取：
-```this.$refs.xxx```
-
-#props配置项
-1.功能：让组件接收外部传过来的数据
-2.传递数据：```<Demo name="xxx"/>```
-3.接收数据：
-  1.第一种方法（只接收）：```props:['name'] ```
-  2.第二种方法（限制类型）：```props:{name:String}```
-  3.第三种方法（限制类型，限制必要性，指定默认值）：
-  ```
-      ```js
-      props:{
-      	name:{
-      	type:String, //类型
-      	required:true, //必要性
-      	default:'老王' //默认值
-      	}
-      }
-
-
 
 
 
