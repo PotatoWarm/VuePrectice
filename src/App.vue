@@ -1,12 +1,9 @@
 <template>
    <div>
      <h1 v-text="msg" ref="title" :class="{'animate':isAnimate}"></h1>
+     
      <button @click="showH">点我输出上方的dom元素</button>
-
-
      <Sightname ref="sch"/>
-
-
 
    </div>
 </template>
@@ -46,7 +43,7 @@ export default {
   },
 
 
-  
+
 }
 </script>
 

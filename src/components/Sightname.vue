@@ -17,6 +17,7 @@ export default {
 }
 </script>
 <style scoped lang="less" >
+/* scoped 表示当前样式只在当前组件中生效  lang="less" 表示使用less语法 less是css的预处理语言*/
    .demo{
      background: aqua;
    }
