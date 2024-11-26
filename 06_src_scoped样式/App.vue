@@ -1,15 +1,12 @@
 <template>
-
    <div>
-    <!--使用组件-->
-      <Sightname />
+      <Sightname/>
       <hr/>
-     <Sightaddress/>
+      <Sightaddress/>
    </div>
 </template>
 
 <script>
-//引入组件
 import Sightname from "@/components/Sightname";
 import Sightaddress from "@/components/Sightaddress";
 export default {
@@ -20,4 +17,15 @@ export default {
   },
 }
 </script>
+
+<style>
+   /*
+   全局的样式是不需要加scoped
+   全局共享
+   */
+   .title{
+     color: red;
+   }
+</style>
+
 
