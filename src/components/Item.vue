@@ -7,7 +7,6 @@
       <!--这里修改了从List修改过来的props,这里的不允许改是浅层次，就是如果props是一个对象则这个修改这个对象的某一个属性vue是放行的-->
       <!-- <input type="checkbox" v-model="todo.done"/>-->
       <span>{{  todo.title }}</span>
-      <!--span标签中可以放任何标签,作用是显示内容-->
     </label>
     <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
   </li>
@@ -18,14 +17,11 @@ export default {
   name: "Item",
   //声明接收todo
   props: ['todo', 'checkTodo', 'deleteTodo'],
-  //props是只读的，不能修改
   methods:{
     handleCheck(id){
-      //如果用户点击了确定，则修改
       this.checkTodo(id);
     },
     handleDelete(id){
-      //如果用户点击了确定，则删除
       if(confirm(`确定删除编号为${id}的todo吗`)){
         // console.log(id);
         this.deleteTodo(id);
@@ -39,11 +35,9 @@ export default {
 /*item*/
 li {
   list-style: none;
-  /*list-style: none; 去掉列表前面的点*/
   height: 36px;
-  line-height: 37px;
+  line-height: 36px;
   padding: 0 5px;
-  /*padding: 0 5px; 上下0，左右5px*/
   border-bottom: 1px solid #ddd;
 }
 

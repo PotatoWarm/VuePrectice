@@ -25,7 +25,6 @@ export default {
       }
       const todoObj = {
         id: nanoid(),
-        //nanoid()生成一个唯一的id
         title: this.title,
         done:false
       }

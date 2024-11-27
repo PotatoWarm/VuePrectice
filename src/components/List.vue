@@ -23,9 +23,7 @@ export default {
 </script>
 
 <style scoped>
-/*main
-scoped代表局部的，样式只在本组件中生效
-*/
+/*main*/
 .todo-main {
   margin-left: 0;
   border: 1px solid #ddd;
