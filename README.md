@@ -163,6 +163,7 @@
     3.xxxxStorage.getItem(xxx)如果xxx对应的value获取不到，那么getItem的返回值是null。
     4.在存储数据时，最好使用JSON.stringify()序列化一下，在读取数据时，使用JSON.parse()解析一下，结果是null。
 
+---
 ##组件的自定义事件
 1.一种组件间通信的方式，适用于：<span style="color:red">子组件 ===> 父组件</span>
 2.使用场景：A是父组件，B是子组件，B想给A传递数据，那么就要在A中给B绑定自定义事件（<span style="color:red">事件的回调在A中</span>）。    
@@ -176,6 +177,8 @@
 6.组件上也可以绑定原生```DOM```事件，需要使用```native```修饰符。 
 7.注意：通过```this.$refs.xxx.$on('atguigu',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>，<span style="color:red">要么用箭头函数</span>，不能写成```this.$refs.xxx.$on('atguigu',回调函数)```，否则会报错。
 
+
+---
 ##全局事件总线(GlobalEventBus)
 1.一种组件间通信的方式，适用于<span style="color:red">任意组件间通信</span>。
 2.安装全局事件总线：
@@ -201,6 +204,8 @@ this.$bus.$emit('事件名',数据)
 
 4.最好在beforeDestroy钩子中，用$off去解绑<span style="color:red">自定义事件</span>。
 
+
+---
 ##消息订阅与发布
 1.一种组件间通信的方式，适用于<span style="color:red">任意组件间通信</span>。
 2.使用步骤：
@@ -212,11 +217,16 @@ this.$bus.$emit('事件名',数据)
     5.最好在beforeDestroy钩子中，用```pubsub.unsubscribe(this.token)```去<span style="color:red">解绑</span>。
 
 
+
+---
 ##nextTick
 1.语法：```this.$nextTick(回调函数)```
 2.作用：在下一次DOM更新结束后执行其指定的回调。
 3.什么时候用：当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行。
 
+
+
+---
 ##Vue封装的过度与动画
 1.作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。
 2.图示：<img src="[./assets/vue-transitions.png](https://ts1.cn.mm.bing.net/th/id/R-C.a4ed42e2baf1c650adb03b9d7e458b62?rik=Y3EWtRkEFq9PwQ&riu=http%3a%2f%2fpic11.nipic.com%2f20101115%2f6163721_102552846000_2.jpg&ehk=KpQEThDayaHRqDzwFc1bKmayeje8Gk%2fDj6Zrcf5x868%3d&risl=&pid=ImgRaw&r=0)" alt="vue-transitions">
@@ -241,6 +251,9 @@ this.$bus.$emit('事件名',数据)
 
 3.备注:若有多个元素需要过度，则需要使用```<transition-group>```，且每个元素都要指定```key```属性。
 
+
+
+---
 ##vue脚手架配置代理
 
 ##方法一
@@ -374,3 +387,5 @@ export default {
 }
 </script>
 ```
+
+---
