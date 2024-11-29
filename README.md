@@ -234,8 +234,8 @@ this.$bus.$emit('事件名',数据)
 ---
 ## Vue封装的过度与动画
 1.作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。   
-2.图示：<img src="[./assets/vue-transitions.png](https://ts1.cn.mm.bing.net/th/id/R-C.a4ed42e2baf1c650adb03b9d7e458b62?rik=Y3EWtRkEFq9PwQ&riu=http%3a%2f%2fpic11.nipic.com%2f20101115%2f6163721_102552846000_2.jpg&ehk=KpQEThDayaHRqDzwFc1bKmayeje8Gk%2fDj6Zrcf5x868%3d&risl=&pid=ImgRaw&r=0)" alt="vue-transitions">\
-3.写法：\
+
+2.写法：\
     - 准备好样式：\
         1. 元素进入的样式：\
         ```v-enter```：进入的起点\
@@ -247,14 +247,14 @@ this.$bus.$emit('事件名',数据)
         ```v-leave-to```：离开的终点\
     - 使用```<transition>```包裹要过度的元素，并配置name属性：
 
-2.使用```<transition name="hello">```包裹要过度的元素，并配置name属性，注意如果配置了appear属性的话就代表一开始挂载真实dom的时候就会有过渡效果。
+3.使用```<transition name="hello">```包裹要过度的元素，并配置name属性，注意如果配置了appear属性的话就代表一开始挂载真实dom的时候就会有过渡效果。
 ```vue
 <transition name="hello" appear>
     <h1 v-show="isShow">你好啊</h1>
 </transition>
 ```
 
-3.备注:若有多个元素需要过度，则需要使用```<transition-group>```，且每个元素都要指定```key```属性。
+4.备注:若有多个元素需要过度，则需要使用```<transition-group>```，且每个元素都要指定```key```属性。
 
 
 
@@ -393,5 +393,4 @@ export default {
 }
 </script>
 ```
-
 ---
