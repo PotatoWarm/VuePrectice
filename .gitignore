@@ -1,3 +1,69 @@
+# .DS_Store是mac系统下的隐藏文件,用于存储文件和文件夹的元数据
 .DS_Store
+
+
+# node_modules是node.js的模块文件夹,用于存放node.js的模块
 node_modules
 
+# 打包后的文件
+/dist
+
+# 本地环境变量文件
+.env.local
+
+
+# 本地环境变量文件
+.env.*.local
+
+# npm的日志文件
+npm-debug.log*
+
+# yarn的日志文件
+yarn-debug.log*
+
+# yarn的错误日志文件
+yarn-error.log*
+
+# pnpm的日志文件
+pnpm-debug.log*
+
+# Editor directories and files
+# 编辑器目录和文件
+.idea
+
+# vscode的文件
+.vscode
+
+# 解决方案文件,suo是vscode的文件    
+*.suo
+
+# 其他文件,ntvs*是vscode的文件  
+*.ntvs*
+
+# 其他文件,njsproj是node.js项目文件
+*.njsproj
+
+# 其他文件,sln是解决方案文件    
+*.sln
+
+# 其他文件，sw?是vscode的文件   
+*.sw?
+
+
+# 开发工具相关
+#.DS_Store        # Mac系统文件
+#.idea            # IntelliJ相关文件
+#.vscode          # VS Code配置文件
+
+# 依赖相关
+#node_modules     # Node.js依赖包
+#/dist            # 构建输出目录
+
+# 环境配置
+# .env.local       # 本地环境变量
+# .env.*.local     # 所有本地环境变量文件
+
+# 日志文件
+# npm-debug.log*   # npm日志
+# yarn-debug.log*  # yarn日志
+# yarn-error.log*  # yarn错误日志
