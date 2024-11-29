@@ -6,7 +6,10 @@
         :todo="todo"/>
     </ul>
 </template>
-
+<!-- 
+    使用v-for指令遍历todos数组，
+    将每个todo对象传递给Iterm组件
+-->
 <script>
 import Iterm from '@/components/Iterm.vue';
 export default {

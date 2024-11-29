@@ -1,13 +1,29 @@
 <template>
+<!-- 
+ 全局事件总线总结：
+ 1. 一种组件间通信的方式，适用于任意组件间通信
+ 2. 安装事件总线：在main.js中
+    语法：Vue.prototype.$bus = new Vue()
+ 3. 使用事件总线：
+    1. 接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的回调留在A组件自身
+    2. 提供数据：this.$bus.$emit('事件名', 数据)    
+    3. 最好在beforeDestroy钩子中，用$off()去解绑当前组件所用到的事件
+-->
+
+
   <div id="root">
     <div class="todo-container">
+      <!-- 
+        使用v-bind指令将todos数据传递给MyList组件
+        container是容器，wrap是包裹
+      -->
       <div class="todo-wrap">
         <MyHeader @addTodo="addTodo"/>
         <MyList :todos="todos"/>
         <MyFooter
             :todos="todos"
-            @clearAll = "clearAllDone"
-            @clearAllDoneTodo="clearAllDoneTodo"
+            @clearAllDone="clearAllDone"
+            @checkAllTodo="checkAllTodo" 
         />
       </div>
     </div>
@@ -18,6 +34,9 @@
 import MyHeader from "./components/MyHeader";
 import MyList from "./components/MyList";
 import MyFooter from './components/MyFooter';
+
+// import {nanoid} from 'nanoid'; 引入nanoid库
+// 使用export default导出App组件
 export default {
   name: "App",
   components:{
@@ -25,6 +44,7 @@ export default {
     MyFooter,
     MyHeader
   },
+
   data() {
     return {
       // todos: [
@@ -33,17 +53,30 @@ export default {
       //   {id: '003', title: '打代码', done: false}
       // ]
       todos:JSON.parse(localStorage.getItem('todos')) || []
+      // 使用JSON.parse()将localStorage中的todos数据转换为JavaScript对象，
+      // 如果localStorage中没有todos数据，则返回一个空数组  
     }
   },
+
   methods:{
+    //清除所有已完成的任务
     clearAllDone(){
-      this.todos = this.todos.filter(todo => !todo.done)
+      try {
+        // 过滤出未完成的任务
+        this.todos = this.todos.filter(todo => !todo.done)
+        // 更新本地存储
+        localStorage.setItem('todos', JSON.stringify(this.todos))
+        console.log('清除已完成任务成功')
+      } catch (error) {
+        console.error('清除任务失败：', error)
+      }             
     },
     //添加的todo
     addTodo(todo){
       console.log('我是app组件，我收到了数据');
       this.todos.unshift(todo);
     },
+    //勾选或取消勾选
     checkTodo(id){
       const todo = this.todos.find(todo => todo.id === id);
       todo.done = !todo.done;
@@ -51,10 +84,14 @@ export default {
     deleteTodo(id){
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
+    //全选或取消全选
     checkAllTodo(done){
-      this.todos.forEach(todo => todo.done = done);
+      this.todos.forEach(todo => {
+        todo.done = done
+      })
     },
-    clearAllDoneTodo(){
+    //清除所有已完成的任务
+    clearAllDone(){
       this.todos = this.todos.filter(todo => !todo.done)
     }
   },

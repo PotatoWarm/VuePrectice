@@ -1,6 +1,8 @@
 <template>
-    <div class="todo-header">
-      <input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="title" @keyup.enter="add"/>
+    <div class="todo-header" >
+      <input type="text" 
+      placeholder="请输入你的任务名称，按回车键确认"
+      @keyup.enter="addTodo"/>
     </div>
   </template>
   
@@ -16,25 +18,24 @@
       }
     },
     methods:{
-      add(){
+      addTodo(e){
         //将用户的输入包装成一个todo对象
-        console.log(this.title)
-        if(!this.title.trim()) {
+        if(!e.target.value.trim()) {
           alert('代办事项不能为空')
           return; //输入的代办事项为空则不走下面流程
         }
         const todoObj = {
           id: nanoid(),
-          title: this.title,
+          title:  e.target.value.trim(),
           done:false
         }
         // console.log(todoObj);
         // this.addTodo(todoObj);
         //采用自定义事件来修改
         this.$emit('addTodo',todoObj);
-        this.title = '';
+        e.target.value = ''
       }
-    },
+    }
   }
   </script>
   
