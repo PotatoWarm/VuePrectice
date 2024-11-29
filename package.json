@@ -1,16 +1,19 @@
 {
   "name": "lingling-project-one",
+  "description": "一个简单的待办事项应用",
   "version": "0.1.0",
+  "author": "lingling",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
-    
+    "vue": "^2.6.14",
+    "nanoid": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
