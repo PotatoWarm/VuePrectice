@@ -1,12 +1,15 @@
-import { createApp } from 'vue';
+//引入Vue
+import Vue from "vue";
+//引入App
+import App from './App';
 
-import App from './App.vue';
-
-createApp(App).mount('#app');
-
+//关闭Vue的生产提示
 Vue.config.productionTip = false;
+
 
 new Vue({
     el:'#app',
-    render: h => (App)
+    render: h => h(App)
 });
+
+
