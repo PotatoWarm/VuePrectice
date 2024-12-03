@@ -397,10 +397,10 @@ export default {
 
 ## Vuex
 ### 1.概念
-     在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。/
+在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
 
 ### 2.何时使用？
-     多个组件需要共享数据式/
+     多个组件需要共享数据式
 
 ### 3.搭建vuex环境
 1.创建文件：/
@@ -434,4 +434,57 @@ export default new Vuex.Store({
 //引入store
 import store from './store'
 ······
+
+//创建vm
+new Vue（{
+    el：'#app',
+    render:h => h(App),
+    store
+}）
 ```
+
+###   4.基本使用
+1.初始化数据，配置```actions ```,```mutations ```,操作文件```store.js ```
+
+```js
+//引入vue核心库
+import vue from 'vue'
+
+//引入Vuex
+import Vuex from 'vuex'
+
+//引入Vuex
+Vue.use(Vuex)
+
+const actions = {
+    //响应组件中加的动作
+    jia(context,value){
+        //console.log('actions中的jia被调用了'，miniStore，value)
+        context.commit('JIA',value)
+    },
+}
+
+const mutation = {
+    //执行加
+    JIA(state,value){
+        //console.log('mutations中的JIA被调用了'，state，value)
+        state.sum += value
+    }
+}
+
+//初始化数据
+const state = {
+    sum:0
+}
+
+//创建并暴露store
+export default new Vuex.Store({
+    actions,
+    mutations,
+    state,
+})
+```
+
+2.组件中读取vuex中的数据：```$store.state.sum ```
+3.组件中修改vuex中的数据：```$store.dispatch('action中的方法名'，数据) ```或```$store.commit('mutations中的方法名'，数据) ```
+     > 备注：若没有网络请求或其他业务逻辑，组件中也可以超越actions，即不写```dispatch ```，直接编写```commit ```
