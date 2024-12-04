@@ -12,10 +12,12 @@
 
 <script>
 import Item from "@/components/Item";
+//2.导入组件
 
 export default {
   name: "List",
   components: {
+    //1.定义组件
     Item,
   },
   props:['todos', 'checkTodo', 'deleteTodo']

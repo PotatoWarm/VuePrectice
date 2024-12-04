@@ -30,17 +30,30 @@ export default {
     MyHeader
   },
   data() {
+    //data()返回的属性将会成为响应式的状态
+    //并且暴露在"this"上
+
+
     return {
       // todos: [
       //   {id: '001', title: '吃饭', done: false},
       //   {id: '002', title: "睡觉", done: true},
       //   {id: '003', title: '打代码', done: false}
+
+
       // ]
       todos:JSON.parse(localStorage.getItem('todos')) || []
+
+
+
     }
   },
   methods:{
     //添加的todo
+    //methods是一些用来更改状态与触发更新的函数
+    //它们可以在模板中作为事件处理器绑定
+
+    
     addTodo(todo){
       console.log('我是app组件，我收到了数据');
       this.todos.unshift(todo);
