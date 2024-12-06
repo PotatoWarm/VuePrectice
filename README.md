@@ -511,4 +511,10 @@ export default new Vuex.Store({
 3.组件中读取数据：``` $store.getters.bigSum ```
 
 ###6.四个map方法的使用
-1.<strong>mapState方法：</strong>
+1.<strong>mapState方法：</strong>用于帮助我们映射``` state ```中的数据为计算属性
+'''js
+compute:{
+    //借助mapState生成计算属性：sum，school，subject（对象写法）
+    ···mapState({sum:'sum','school',})
+}
+'''
