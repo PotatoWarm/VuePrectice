@@ -31,13 +31,13 @@ export default{
         },
         isAll:{
             get(){
-                return this.total === this.doneTotal && this.doneTotal >0;//计算属性可以通过其他的计算属性接着进行计算得到结果
+                return this.total > 0 && this.total === this.doneTotal; // 确保 total 大于 0
             },
             set(value){
-                //value注意要么为ture，要么为false，因为你是把它应用在了checkbox上
-                //this.checkAllTodo(vallue);
+                //value注意要么为true，要么为false，因为你是把它应用在了checkbox上
+                //this.checkAllTodo(value);
                 //采用自定义事件来修改
-                this.$emit('checckAlltodo',value);
+                this.$emit('checkAlltodo',value);
             }
         }
     },

@@ -1,7 +1,7 @@
 <template>
     <div id="root">
         <div class="todo-container">
-            <div class="todo-warp">
+            <div class="todo-wrap">
                 <MyHeader @addTodo = "addTodo"/>
                 <List
                      :todos = "todos"
@@ -18,6 +18,7 @@
 
 <script>
 //导入
+import Vue from 'vue'; 
 import MyHeader from '@/components/MyHeader.vue';
 import List from '@/components/List.vue';
 import MyFooter from '@/components/MyFooter.vue';
@@ -36,7 +37,7 @@ export default{
             //添加$bus的定义
             $bus:new Vue()
             //假设使用vue实例作为事件总线
-        }
+        };
     },
     methods:{
         addTodo(todo){
@@ -68,11 +69,11 @@ export default{
     },
     mounted(){
         this.$bus.$on('checkTodo',this.checkTodo);
-        this.PubId = pubsub.subscribe('deleteTodo',this.deleteTodo);
+        this.PubId = PubSub.subscribe('deleteTodo',this.deleteTodo);
     },
     beforeMount(){
         this.$bus.$off('checkTodo');
-        pubsub.unsubscribe(this.PubId);
+        PubSub.unsubscribe(this.PubId);
     }
 }
 </script>
