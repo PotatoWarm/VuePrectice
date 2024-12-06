@@ -517,4 +517,5 @@ compute:{
     //借助mapState生成计算属性：sum，school，subject（对象写法）
     ···mapState({sum:'sum','school',})
 }
-'''
+
+```
