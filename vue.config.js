@@ -6,6 +6,15 @@ module.exports = defineConfig({
   // 使用lintOnSave属性指定是否在保存时检查代码
   lintOnSave: false,
   // 使用css属性指定css的配置
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5001/', // 目标 API 服务器
+        changeOrigin: true, // 是否改变源
+        pathRewrite: { '^/api': '' }, // 重写路径
+      },
+    },
+  },
   css: {
     // 使用loaderOptions属性指定less的配置
     loaderOptions: {
