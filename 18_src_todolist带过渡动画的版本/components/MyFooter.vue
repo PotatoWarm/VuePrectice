@@ -42,10 +42,15 @@ export default{
         }
     },
     methods:{
-        //checkAll(e){
+        //clickAll(e){
         //      console.log(e,target.checked);//判断这个checkbox到底是不是全选  ture全选  false全不选
         //      this。checkAllTodo（e.target.checked）;
         //}
+        clickAll() {
+        // 触发自定义事件，通知父组件清除已完成的任务
+        this.$emit('clearAllDoneTodo');
+    },
+
         clearAll(){
             // this.clearAllDoneTodo();
             //修改为自定义事件
