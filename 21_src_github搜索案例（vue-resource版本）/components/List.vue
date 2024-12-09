@@ -7,9 +7,10 @@
             <p class="card-text">{{ user.login }}</p>
         </div>
 
-
     <h1 v-show="info.isFirst">welcome!</h1>
-    <h1 v-show="info.isLoading">Loading...</h1>
+    
+    <h1 v-show="info.isLoading">Loading...</h1> 
+    
     <h1 v-show="info.errMsg">Something has been wrong,errorMessage:{{ info.errMsg }}</h1>
     </div>
 </template>
