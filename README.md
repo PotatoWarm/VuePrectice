@@ -552,8 +552,8 @@ methods:{
 
 > 备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
 
-### 7.模板化+命名空间/
-1.目的：让代码更好维护，让多种数据分类更加明确。/
+### 7.模板化+命名空间
+1.目的：让代码更好维护，让多种数据分类更加明确。
 
 2.修改``` store.js ```
 
@@ -585,7 +585,7 @@ const countAbout = {
  })
  ```
 
- 3.开启命名空间后，组件中读取state数据：/
+ 3.开启命名空间后，组件中读取state数据：
  ```js
  //方式一：自己直接读取
  this.$store.state.personAbout.list
@@ -593,7 +593,7 @@ const countAbout = {
  ...mapState('countAbout',['sum','school','subject']),
  ```
 
- 4.开启命名空间后，组件中读取getters数据：/
+ 4.开启命名空间后，组件中读取getters数据：
  ```js
 //方式一：自己直接读取
 this.$store.getters['personAbout/firstPersonName']
@@ -601,7 +601,7 @@ this.$store.getters['personAbout/firstPersonName']
 ...mapGetters('countAbout',['bigSum'])
  ```
 
- 5.开启命名空间后，组件中调用dispatch/
+ 5.开启命名空间后，组件中调用dispatch
  ```js
 //方法一：自己直接didspatch
 this.$store.dispatch('personAbout/addPersonWang',person)
