@@ -503,19 +503,111 @@ const getters = {
 
 //创建并暴露store
 export default new Vuex.Store({
-    getters
+    actions,
+    mutations,
+    state,
 })
 ·····
 ```
 
-3.组件中读取数据：``` $store.getters.bigSum ```
+3.组件中读取vuex中的数据：``` $store.state.sum ```
 
 ###6.四个map方法的使用
 1.<strong>mapState方法：</strong>用于帮助我们映射``` state ```中的数据为计算属性
-'''js
-compute:{
+
+```js
+computed:{
     //借助mapState生成计算属性：sum，school，subject（对象写法）
-    ···mapState({sum:'sum','school',})
-}
+    ...mapState({sum:'sum',school:'school',subject:'subject'}),
+
+    //借助mapState生成计算属性：sum，school，subject（数组写法）
+    ...mapState(['sum','school','subject']),
+},
+```
+
+2.<strong>mapGetters方法：</strong>用于帮助我们映射``` getters ```中的数据为计算属性
+
+```js
+computed:{
+    //借助mapGetters生成计算属性：bigSum（对象写法）
+    ...mapGetters({bigSum:'bigSum'})，
+
+    //借助mapGetters生成计算属性：bigSum（数组写法）
+    ...mapGetters(['bigSum'])
+},
 
 ```
+
+4.<strong>mapMutations方法：</strong>用于帮助我们生成与``` mutations ```对话的方法，即：包含``` $store.commit(xxx) ```的函数
+
+```js
+methods:{
+    //靠mapActions生成：increment，decrement（对象形式）
+    ...mapMutations({increment:'JIA',decrement:'JIAN'}),
+
+    //靠mapMutations生成：JIA,JIAN（对象形式）
+    ...mapMutations(['JIA','JIAN']),
+}
+```
+
+> 备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+
+### 7.模板化+命名空间/
+1.目的：让代码更好维护，让多种数据分类更加明确。/
+
+2.修改``` store.js ```
+
+``` javascript
+const countAbout = {
+    namespaced:ture,//开启命名空间
+    state:{x:1},
+    mutations:{ ... },
+    actions: { ... },
+    getters:{
+        bigSum(state){
+            return state.sum * 10
+        }
+    }
+}
+
+ const personAbout = {
+    namespaced:ture,//开启命名空间
+    state:{...},
+    mutations:( ... ),
+    actions:{ ... }
+ }
+
+ const store = new Vuex.Store({
+    modules:{
+        countAbout,
+        personAbout
+    }
+ })
+ ```
+
+ 3.开启命名空间后，组件中读取state数据：/
+ ```js
+ //方式一：自己直接读取
+ this.$store.state.personAbout.list
+ //方式二：借助mapSate读取：
+ ...mapState('countAbout',['sum','school','subject']),
+ ```
+
+ 4.开启命名空间后，组件中读取getters数据：/
+ ```js
+//方式一：自己直接读取
+this.$store.getters['personAbout/firstPersonName']
+//方式二：借助mapGetters读取：
+...mapGetters('countAbout',['bigSum'])
+ ```
+
+ 5.开启命名空间后，组件中调用dispatch/
+ ```js
+//方法一：自己直接didspatch
+this.$store.dispatch('personAbout/addPersonWang',person)
+//方式二：借助mapActions：
+...mapActions('countAbout',{increment:'JIA',decrement:'JIAN'}),
+ ```
+
+
+ 
