@@ -32,7 +32,7 @@ export default{
             this.$store.commit('ADD_PERSON',perObj);
         }
     },
-    computed:{
+    computed:{//声明依赖于数据的计算属性
         //...mapState(['personList']),
         personList(){
             return this.$store.state.personList;
