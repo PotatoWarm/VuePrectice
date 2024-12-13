@@ -1,4 +1,5 @@
 <template>
+    <!---  组件的结构   -->
     <div>
         <h1>当前求和为：{{ sum }}</h1>
         <!-- 让其收集到的数据全是number类型的number修饰符 -->
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+//组件交互相关的代码
 export default{
     //计数组件
     name:"Count",
