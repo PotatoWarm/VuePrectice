@@ -18,6 +18,10 @@
 
 <script>
 import { mapActions, mapMutations,mapGetters,mapState } from 'vuex';
+//核心概念  state，Getters，Mutations，Actions，Modules
+
+
+
 
 export default{
     name:"Count",
