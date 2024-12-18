@@ -7,8 +7,8 @@
 ├── node_modules/         # 依赖包
 ├── public/              # 静态资源目录
 │   ├── favicon.ico      # 网站图标
-│   └── index.html       # 主 HTML 文件
-├── src/                 # 源代码目录
+│   └── index.html       # 主 HTML 文件(不能修改)
+├── src/（不能修改）                 # 源代码目录
 │   ├── assets/         # 资源文件(图片、样式等)
 │   ├── components/     # 公共组件
 │   ├── views/          # 页面级组件
@@ -19,7 +19,7 @@
 │   ├── api/            # API 接口管理
 │   ├── utils/          # 工具函数
 │   ├── App.vue         # 根组件
-│   └── main.js         # 入口文件
+│   └── main.js         # 入口文件（不能修改）
 ├── .gitignore          # Git 忽略文件
 ├── babel.config.js     # Babel 配置
 ├── package.json        # 项目配置文件
@@ -395,7 +395,7 @@ export default {
 ```
 ---
 
-## Vuex
+##Vuex
 ### 1.概念
 在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
 
