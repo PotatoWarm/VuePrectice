@@ -4,6 +4,8 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 
+window.x = {a:1,b:2}
+
 new Vue({
     el:'#app',
     render:h => h(App),

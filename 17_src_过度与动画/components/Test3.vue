@@ -19,7 +19,7 @@
 </template>
 
 <script>
-
+import 'animate.css';
 export default{
     name:"Test3",
     data(){
