@@ -612,6 +612,7 @@ this.$store.dispatch('personAbout/addPersonWang',person)
 
 
 ## 路由
+
 ### 1.基本使用
 1.安装vue-router：``` npm i vue-router ```
 2.在``` main.js ```中创建router实例对象
@@ -825,7 +826,7 @@ $route.params.title
     //}
 ```
 
-### 8.```<router-link>```的replace属性
+### 8.router-link>的replace属性
 
 1.作用：控制路由跳转时操作浏览器历史记录的模式
 2.浏览器的历史记录有两种写入模式：分别为``` push ```（追加历史记录）和``` replace ```（替换当前记录），默认为``` push ```
