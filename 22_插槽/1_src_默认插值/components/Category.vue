@@ -5,6 +5,7 @@
         </category> -->
         <h3>{{ title }}</h3>
         <slot>我是默认值</slot>
+        <!-- 定义一个插槽（挖个坑，等着组件的使用着进行填充） -->
     </div>
 </template>
                                                                                                                                                                                                                                         

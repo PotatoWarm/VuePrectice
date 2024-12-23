@@ -1,6 +1,7 @@
 <template>
     <div class="category">
         <h3>{{ title }}</h3>
+        /<Demo> :games="listData">我是插槽内容</Demo>
         <slot name="center">我是默认值</slot>
         <slot name="footer">我是默认值</slot>
     </div>
