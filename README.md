@@ -617,7 +617,7 @@ this.$store.dispatch('personAbout/addPersonWang',person)
 1.安装vue-router：``` npm i vue-router ```\
 2.在``` main.js ```中创建router实例对象
   应用插件：``` Vue.use(VueRouter) ```\
-3.编写router配置对象：\
+3.编写router配置对象：
 ``` js
 //引入VueRouter
 import VueRouter from 'vue-router'
@@ -928,7 +928,8 @@ beforeRouteLeave(to,from,next){
 
 ### 13.路由器的两种工作模式
 
-1.对于一个url来说，什么是hash值？-----#及其后面的内容就是harsh值。/
+1.对于一个url来说，什么是hash值？-----#及其后面的内容就是harsh值。\
+3.hash模式：\
 2.hash值不会包含在http请求中，即：hash值不会带给服务器。\
 3.hash模式：\
     1.地址中永远带着#号，不美观。\
