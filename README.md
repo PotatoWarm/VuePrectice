@@ -613,6 +613,8 @@ this.$store.dispatch('personAbout/addPersonWang',person)
 
 ## 路由
 
+
+
 ### 1.基本使用
 1.安装vue-router：``` npm i vue-router ```\
 2.在``` main.js ```中创建router实例对象
@@ -939,4 +941,6 @@ beforeRouteLeave(to,from,next){
     1.地址干净，美观。\
     2.兼容性和hash比略差，需要后台配置支持，才能解决刷新页面服务端404的问题。\
     3.应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
-11111111111
+
+## Mylife
+#
