@@ -943,4 +943,6 @@ beforeRouteLeave(to,from,next){
     3.应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
 
 ## Mylife
-#
+* [记录本章案例中的想法（MyLife/记录学习过程中想法.md）]
+## vue笔记S
+* [vue笔记（main/vue笔记（原文Czy）]
