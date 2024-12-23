@@ -1,26 +1,26 @@
 # $router和$route的区别
 
-`$router`和`$route`都是`vue-router`提供的对象，但是`$router`是整个路由实例，而`$route`是当前路由对象。\
+`$router`和`$route`都是`vue-router`提供的对象，但是`$router`是整个路由实例，而`$route`是当前路由对象。
 
 `Vue Router`是`Vue.js`的路由管理器，路由就是`SPA`单页应用的访问路径，在`Vue`实例内部，可以通过`$router`访问路由实例。\
 即在路由定义文件中`export default`的`new Router `路由实例，通过`$route`可以访问当前激活的路由状态信息，包含了当前URL解析得到的信息，还有`URL`匹配到的路由记录，可以将`$router`理解为一个容器去管理了一组`$route`,而`$route`是进行了当前URL和组件的映射。
 
 ## router对象属性
 
-* `$router.app`：配置了router的Vue实例。\
-* `$router.mode`：路由的使用模式。\
-* `$router.currentRoute`：当前路由对应的路由信息对象。\
+* `$router.app`：配置了router的Vue实例。
+* `$router.mode`：路由的使用模式。
+* `$router.currentRoute`：当前路由对应的路由信息对象。
 
 ## route对象方法
 
 * `$router.beforeEach(to, from, next)`:\
-全局前置守卫，守卫是异步解析执行，此时导航在所有守卫`resolve`完之前一直处于等待中。\
+全局前置守卫，守卫是异步解析执行，此时导航在所有守卫`resolve`完之前一直处于等待中。
 
 守卫方法接受三个参数：
 `to:Route` 即将要进入的目标路由对象 \
 `from:Route`： 当前导航正要离开的路由 \
 `next:Function`： 一定要调用该方法来 \
-`resolve`这个钩子，执行效果依赖 \
+`resolve`这个钩子，执行效果依赖 
 
 `next`方法的调用参数： \
 例如`next()`，`next(false)`，`next('/')`或`next(vm)`，`next（error）`等\
