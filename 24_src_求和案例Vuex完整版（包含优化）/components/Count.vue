@@ -16,7 +16,8 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+import { mapState, mapGetters, mapMutations, mapActions } from 'vue';
+//为Vue提供的辅助函数
 
 export default {
     name: "Count",
