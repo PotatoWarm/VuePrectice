@@ -5,7 +5,7 @@
         <h3>列表中第一个人的名字是：{{ firstPersonName }}</h3>
         <input type="text" placeholder="请输入名字" v-model="name"/>
         <button @click="add">添加</button>
-        <button @click="addWang">添加一个姓王的人</button>
+        <button @click="addwang">添加一个姓王的人</button>
         <button @click="addPersonserver">添加一个人名字随机</button>
         <ul>
             <li v-for="p in personList" :key="p.id">{{ p.name }}</li>
@@ -16,7 +16,7 @@
 <script>
 import { nanoid } from 'nanoid';
 export default {
-    name:"person",
+    name:"person11",
     data(){
         return{
             name:'',
@@ -40,6 +40,21 @@ export default {
             this.$store.dispatch('person/addPersonServer',perObj);
             this.name = '';
         },
+    //解决报错问题,未定义addpersonserver()
+    addPersonserver(){
+        //假设你想在这里添加一个名字随机的人
+        const randomName = '随机名字' + Math.floor(Math.random()*100);
+        const perObj = {
+            id:nanoid(),
+            name:randomName
+        }
+        this.$store.commit('person/ADD_PERSON',perObj);
+    },
+},
+    created(){
+        console.log(this.addwang,'2222');
+        console.log(this.add,'addaddadd');
+        // this.$store.commit('ADD_PERSON',{id:'001',name:'张三'})
     },
     computed:{
         //...mapState(['personList']),
