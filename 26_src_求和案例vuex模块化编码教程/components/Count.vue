@@ -28,7 +28,7 @@ export default{
     data(){
         return{
             n: 1,//代表用户在select框开始的时候选择的数字
-        }
+        } 
     },
     computed:{
         //借助mapState从state中生成计算属性，对象写法
