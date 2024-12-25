@@ -14,8 +14,7 @@
       </router-view>
     </div>
   </div>
-</template>
-
+</template>qiantao
 <script>
 export default {
   name: "Home",
