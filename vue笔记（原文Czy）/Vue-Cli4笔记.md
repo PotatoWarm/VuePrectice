@@ -8,6 +8,9 @@ Vue-Cli4文档推荐一下两种方式创建项目
 
 ```
 vue create my-project
+package.json文件里的browserslist字段 (或一个单独的.browserslistrc文件)，指定了项目的目标浏览器的范围。这个值会被@babel/preset-env和Autoprefixer用来确定需要转译的JavaScript特性和需要添加的CSS浏览器前缀。查阅 此处 了解如何指定浏览器范围
+
+代码拆分
 # or
 Vue ui #可视化操作
 ```
