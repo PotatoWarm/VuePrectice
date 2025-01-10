@@ -100,3 +100,5 @@ console.log(obj.x); //11
 ```
 
 Vue3 使用Proxy实现数据劫持,Object.defineProperty只能监听属性,而Proxy能监听整个对象,通过调用new Proxy(),可以创建一个代理用来替代另一个对象被称为目标,这个代理对目标对象进行了虚拟,因此该代理与目标对象表面上....
+
+## 
