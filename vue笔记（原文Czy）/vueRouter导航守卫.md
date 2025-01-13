@@ -3,3 +3,16 @@ vueRouter提供的导航守卫主要用来通过跳转或取消的方式守卫�
 
 ### 描述
 vue-router一套钩子来触发路由在不同阶段触发的函数，导航守卫分成三大块：全局守卫，路由独享守卫和组件内守卫。全局守卫顾名思义所有路由在进入跳转的时候都会触发，整个全局路由分为三个阶段依次是用，其中只有一个阶段beforeEach、beforeResolve、afterEach。路由独享守卫顾名思义只在定义路由和路由组件中的对象中使beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave三个钩子函数，组件内守卫顾名思义是在组件中定义的beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave三个钩子函数。参数或查阅的改变并不会触发进入或离开的导航守卫，可以通过观察$route对象来应对这些变化，或使用beforeRouteUpdate的组件内守卫。
+
+### 参数
+通常导航守卫接收三个参数,当然并不是所有钩子函数都是如此,不接收相关的钩子函数会特别说明.
+* to: Route: 即将进入的路由对象
+* from: Route: 即将离开的路由对象
+* next: Function: 一个函数,调用它来 resolve 这个钩子,需要确保next函数在任何时候给定的导航守卫中都被严格调用一次,其可以出现多于一次,但只能在所有的逻辑路径都不重叠的情况下,否则钩子永远都不会被解析或者报错.
+* * next():进行管道中的下一个钩子,如果全部钩子执行完了,则导航的状态就是确认configmed的.
+* * next(false): 中断当前的导航,如果浏览器的URL改变了(假设你使用浏览器的回退按钮),那么URL会重置到from路由对应的地址.
+* * next('/') 或者 next({ path: '/' }): 跳转到一个不同的地址,这个新的地址会替换掉当前的地址,因此浏览器的URL会改变,但是不会触发guard的钩子函数.
+* * next(error): 如果传入的参数是一个Error实例,那么导航会被终止且该错误会被传递给router.onError()处理,同时URL也会重置到from路由对应的地址.  
+
+### 全局守卫
+    
